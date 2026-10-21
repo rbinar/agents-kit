@@ -1,0 +1,11 @@
+{
+  "name": "core",
+  "version": "1.0.0",
+  "description": "Engineering (dev-*), product (product-*) and meta (meta-*) agents.",
+  "author": {
+    "name": "rbinar",
+    "url": "https://github.com/rbinar"
+  },
+  "repository": "https://github.com/rbinar/agents-kit",
+  "license": "MIT"
+}

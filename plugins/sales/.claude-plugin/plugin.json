@@ -1,0 +1,11 @@
+{
+  "name": "sales",
+  "version": "1.0.0",
+  "description": "Sales agents (sales-*).",
+  "author": {
+    "name": "rbinar",
+    "url": "https://github.com/rbinar"
+  },
+  "repository": "https://github.com/rbinar/agents-kit",
+  "license": "MIT"
+}

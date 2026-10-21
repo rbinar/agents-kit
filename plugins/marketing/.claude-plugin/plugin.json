@@ -1,0 +1,11 @@
+{
+  "name": "marketing",
+  "version": "1.0.0",
+  "description": "Marketing and growth agents (marketing-*).",
+  "author": {
+    "name": "rbinar",
+    "url": "https://github.com/rbinar"
+  },
+  "repository": "https://github.com/rbinar/agents-kit",
+  "license": "MIT"
+}
