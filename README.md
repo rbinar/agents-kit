@@ -45,6 +45,24 @@ Use core:product-facilitator to classify this request: "We want to build a todo 
 
 Agents hand off to each other by bare name in their text (for example "hand off to dev-coordinator"); Claude maps that to the namespaced agent (`core:dev-coordinator`) automatically, so the pipelines keep flowing without extra configuration.
 
+### Lifecycle commands
+
+The `core` plugin ships six slash commands, one per lifecycle stage. Each runs in your main session and delegates to the right agents:
+
+```
+  DEFINE          PLAN           BUILD          VERIFY         REVIEW          SHIP
+/core:spec  ->  /core:plan  ->  /core:build  ->  /core:test  ->  /core:review  ->  /core:ship
+```
+
+| Command | Stage | What it does |
+|---|---|---|
+| `/core:spec <idea>` | Define | Asks you clarifying questions, then `product-manager` writes the PRD |
+| `/core:plan <PRD/story>` | Plan | `dev-tech-lead` writes the SDD, `dev-planner` turns it into a parallel implementation plan |
+| `/core:build <plan>` | Build | `dev-coordinator` implements the plan |
+| `/core:test [target]` | Verify | `dev-test-engineer` writes and runs tests; `dev-debugger` takes non-test failures |
+| `/core:review [target]` | Review | `dev-reviewer`, plus `dev-security` for auth, infra, payments, secrets or personal data |
+| `/core:ship [branch]` | Ship | `dev-shipper` verifies, updates the changelog, opens the PR, merges and tags, asking you before each outward step |
+
 Agents that write files put their artefacts into **your project** under `.specs/` (and `.docs/` for `dev-doc-writer`) - see [Artefact Storage Strategy](#artefact-storage-strategy).
 
 ---
