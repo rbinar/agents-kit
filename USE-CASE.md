@@ -2,7 +2,7 @@
 
 This scenario shows step by step how a vague idea that starts as "we want to build a todo app" travels through the agent pipelines and becomes a production deploy. At every step you can see which agent runs, what it produces and where the output is written inside `.specs/`.
 
-Agent names below are shown in their short form. When installed from the marketplace they are namespaced by plugin (for example `core:product-facilitator`, `core:dev-tech-lead`); agents hand off to each other by bare name and Claude resolves the namespaced agent automatically.
+Agent names below are shown in their short form. When installed from the marketplace they are namespaced by plugin (for example `sdlc:product-facilitator`, `sdlc:dev-tech-lead`); agents hand off to each other by bare name and Claude resolves the namespaced agent automatically.
 
 ---
 
@@ -36,7 +36,7 @@ product-facilitator
 **Triggered by:** the team lead typing the following into Claude Code, naming the agent explicitly:
 
 ```
-@agent-core:product-facilitator We want to build a todo app. Users should be able to add tasks and complete them.
+@agent-sdlc:product-facilitator We want to build a todo app. Users should be able to add tasks and complete them.
 ```
 
 **What it does:** Classifies the input. This is a product vision - there is no PRD yet and the scope is unclear. Instead of jumping straight to `product-manager`, it routes to `product-lead` first.

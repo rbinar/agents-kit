@@ -4,4 +4,4 @@ argument-hint: <plan or SDD path>
 ---
 Input: $ARGUMENTS
 
-Delegate to `core:dev-coordinator` to implement the plan. Report the changed files and suggest `/test` as the next step.
+Delegate to `sdlc:dev-coordinator` to implement the plan. Report the changed files and suggest `/sdlc:test` as the next step.

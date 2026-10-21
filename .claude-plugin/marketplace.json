@@ -3,7 +3,7 @@
   "owner": { "name": "rbinar", "url": "https://github.com/rbinar" },
   "description": "Specialized Claude Code subagents for engineering, product, marketing and sales pipelines.",
   "plugins": [
-    { "name": "core", "source": "./plugins/core", "description": "Engineering (dev-*), product (product-*) and meta (meta-*) agents." },
+    { "name": "sdlc", "source": "./plugins/sdlc", "description": "Engineering (dev-*), product (product-*) and meta (meta-*) agents." },
     { "name": "marketing", "source": "./plugins/marketing", "description": "Marketing and growth agents (marketing-*)." },
     { "name": "sales", "source": "./plugins/sales", "description": "Sales agents (sales-*)." }
   ]

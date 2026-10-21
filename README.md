@@ -1,6 +1,6 @@
 # agents-kit
 
-A four-layer AI agent system for Claude Code, covering end-to-end software delivery from product discovery to production deploy. Forty-eight specialised subagents are organised into four pipelines plus a cross-cutting meta layer: **product-*** manages vision and requirements; **marketing-*** produces positioning, go-to-market and content; **sales-*** coordinates the sales process from lead to close; **dev-*** handles design, implementation and delivery. The agents ship as three Claude Code plugins from a single marketplace: `core` (dev + product + meta) is the base install, and `marketing` and `sales` are optional add-ons.
+A four-layer AI agent system for Claude Code, covering end-to-end software delivery from product discovery to production deploy. Forty-eight specialised subagents are organised into four pipelines plus a cross-cutting meta layer: **product-*** manages vision and requirements; **marketing-*** produces positioning, go-to-market and content; **sales-*** coordinates the sales process from lead to close; **dev-*** handles design, implementation and delivery. The agents ship as three Claude Code plugins from a single marketplace: `sdlc` (dev + product + meta) is the base install, and `marketing` and `sales` are optional add-ons.
 
 > For a real-world walkthrough, see [USE-CASE.md](USE-CASE.md) - it shows step by step how a product vision is carried from an idea to a production deploy.
 
@@ -12,7 +12,7 @@ Run these inside Claude Code:
 
 ```
 /plugin marketplace add rbinar/agents-kit
-/plugin install core@agents-kit
+/plugin install sdlc@agents-kit
 /plugin install marketing@agents-kit   # optional
 /plugin install sales@agents-kit       # optional
 ```
@@ -27,47 +27,47 @@ Update later with:
 
 | Plugin | Agents | What it covers |
 |---|---|---|
-| `core` | 33 (21 `dev-*` + 11 `product-*` + 1 `meta-*`) | Product pipeline (goals, PRD, epics, stories, sprints, retrospectives), engineering pipeline (design, planning, implementation, testing, review, security, shipping, operations) and the meta quality evaluator |
+| `sdlc` | 33 (21 `dev-*` + 11 `product-*` + 1 `meta-*`) | Product pipeline (goals, PRD, epics, stories, sprints, retrospectives), engineering pipeline (design, planning, implementation, testing, review, security, shipping, operations) and the meta quality evaluator |
 | `marketing` | 8 (`marketing-*`) | Positioning, ICP, go-to-market, content, SEO, growth analytics and critique |
 | `sales` | 7 (`sales-*`) | Playbooks, pricing, proposals/SOWs, enablement and deal-risk critique |
 
 ### Using the agents
 
-Once installed, agents are namespaced by plugin: `core:dev-coordinator`, `marketing:marketing-strategist`, `sales:sales-critic`, and so on. Claude routes to them automatically from the agent descriptions, or you can invoke one explicitly:
+Once installed, agents are namespaced by plugin: `sdlc:dev-coordinator`, `marketing:marketing-strategist`, `sales:sales-critic`, and so on. Claude routes to them automatically from the agent descriptions, or you can invoke one explicitly:
 
 ```
-@agent-core:dev-tech-lead Design the persistence layer for the task CRUD feature and record the decision as an ADR.
+@agent-sdlc:dev-tech-lead Design the persistence layer for the task CRUD feature and record the decision as an ADR.
 ```
 
 ```
-Use core:product-facilitator to classify this request: "We want to build a todo app."
+Use sdlc:product-facilitator to classify this request: "We want to build a todo app."
 ```
 
-Agents hand off to each other by bare name in their text (for example "hand off to dev-coordinator"); Claude maps that to the namespaced agent (`core:dev-coordinator`) automatically, so the pipelines keep flowing without extra configuration.
+Agents hand off to each other by bare name in their text (for example "hand off to dev-coordinator"); Claude maps that to the namespaced agent (`sdlc:dev-coordinator`) automatically, so the pipelines keep flowing without extra configuration.
 
 ### Lifecycle commands
 
-The `core` plugin ships six slash commands, one per lifecycle stage. Each runs in your main session and delegates to the right agents:
+The `sdlc` plugin ships six slash commands, one per lifecycle stage. Each runs in your main session and delegates to the right agents:
 
 ```
   DEFINE          PLAN           BUILD          VERIFY         REVIEW          SHIP
-/core:spec  ->  /core:plan  ->  /core:build  ->  /core:test  ->  /core:review  ->  /core:ship
+/sdlc:spec  ->  /sdlc:plan  ->  /sdlc:build  ->  /sdlc:test  ->  /sdlc:review  ->  /sdlc:ship
 ```
 
 | Command | Stage | What it does |
 |---|---|---|
-| `/core:spec <idea>` | Define | Asks you clarifying questions, then `product-manager` writes the PRD |
-| `/core:plan <PRD/story>` | Plan | `dev-tech-lead` writes the SDD, `dev-planner` turns it into a parallel implementation plan |
-| `/core:build <plan>` | Build | `dev-coordinator` implements the plan |
-| `/core:test [target]` | Verify | `dev-test-engineer` writes and runs tests; `dev-debugger` takes non-test failures |
-| `/core:review [target]` | Review | `dev-reviewer`, plus `dev-security` for auth, infra, payments, secrets or personal data |
-| `/core:ship [branch]` | Ship | `dev-shipper` verifies, updates the changelog, opens the PR, merges and tags, asking you before each outward step |
+| `/sdlc:spec <idea>` | Define | Asks you clarifying questions, then `product-manager` writes the PRD |
+| `/sdlc:plan <PRD/story>` | Plan | `dev-tech-lead` writes the SDD, `dev-planner` turns it into a parallel implementation plan |
+| `/sdlc:build <plan>` | Build | `dev-coordinator` implements the plan |
+| `/sdlc:test [target]` | Verify | `dev-test-engineer` writes and runs tests; `dev-debugger` takes non-test failures |
+| `/sdlc:review [target]` | Review | `dev-reviewer`, plus `dev-security` for auth, infra, payments, secrets or personal data |
+| `/sdlc:ship [branch]` | Ship | `dev-shipper` verifies, updates the changelog, opens the PR, merges and tags, asking you before each outward step |
 
 Agents that write files put their artefacts into **your project** under `.specs/` (and `.docs/` for `dev-doc-writer`) - see [Artefact Storage Strategy](#artefact-storage-strategy).
 
 ---
 
-## Product Pipeline - product-* (plugin: core)
+## Product Pipeline - product-* (plugin: sdlc)
 
 | Agent | Role | Mode |
 |---|---|---|
@@ -85,7 +85,7 @@ Agents that write files put their artefacts into **your project** under `.specs/
 
 ---
 
-## Engineering Pipeline - dev-* (plugin: core)
+## Engineering Pipeline - dev-* (plugin: sdlc)
 
 | Agent | Role | Mode |
 |---|---|---|
@@ -142,7 +142,7 @@ Agents that write files put their artefacts into **your project** under `.specs/
 
 ---
 
-## Meta / Quality Layer - meta-* (plugin: core)
+## Meta / Quality Layer - meta-* (plugin: sdlc)
 
 Cross-cutting agents that apply to the output of **all pipelines** rather than to a single one.
 
