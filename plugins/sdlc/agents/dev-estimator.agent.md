@@ -217,6 +217,6 @@ OUTPUT FORMAT:
 
 HANDOFFS:
 (Pipeline routing — select the appropriate target after each output; do not wait for user confirmation.)
-- Estimate provided ✅ → hand off with `runSubagent("product-sprint-planner", ...)`.
-- Acceptance Criteria missing → hand back with `runSubagent("product-story-writer", ...)`.
-- >13 SP → hand off with split suggestion via `runSubagent("dev-planner", ...)`.
+- Estimate provided ✅ → hand off to `product-sprint-planner`.
+- Acceptance Criteria missing → hand back to `product-story-writer`.
+- >13 SP → hand off with split suggestion via `dev-planner`.

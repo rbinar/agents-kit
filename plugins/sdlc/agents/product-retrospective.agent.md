@@ -221,6 +221,6 @@ For every output, produce the following fields: `summary`, `modified_files` (the
 
 HANDOFFS:
 (Pipeline routing — select the appropriate target after each output, without waiting for user approval.)
-- If there is a strategy-level improvement action → hand off with `runSubagent("product-lead", ...)`.
-- If there is a PRD/process improvement action → hand off with `runSubagent("product-manager", ...)`.
-- After each output → evaluate with `runSubagent("product-guardian", ...)`.
+- If there is a strategy-level improvement action → hand off to `product-lead`.
+- If there is a PRD/process improvement action → hand off to `product-manager`.
+- After each output → evaluate with `product-guardian`.

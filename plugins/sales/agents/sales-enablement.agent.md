@@ -156,9 +156,9 @@ OUTPUT FORMAT:
 - `followups`: Guardian (evaluation), ContentWriter (case study blog version).
 
 HANDOFFS:
-- Output evaluation: `runSubagent("sales-guardian", ...)`
-- Case study blog version: `runSubagent("marketing-content-writer", ...)` (marketing pipeline)
-- Battlecard positioning update: `runSubagent("marketing-strategist", ...)`
+- Output evaluation: `sales-guardian`
+- Case study blog version: `marketing-content-writer` (marketing pipeline)
+- Battlecard positioning update: `marketing-strategist`
 - **Other cross-handoffs are FORBIDDEN.**
 
 SIGNATURE: Append `— Agent: sales-enablement` to the last line of outward-facing output.

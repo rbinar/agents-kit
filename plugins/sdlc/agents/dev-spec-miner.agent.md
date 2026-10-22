@@ -122,7 +122,7 @@ COMMUNICATION STYLE:
 
 HANDOFFS:
 (Pipeline routing — pick the right target at the end of each output, don't wait for user approval.)
-- To write regression tests from the extracted spec → hand off via `runSubagent("dev-test-engineer", ...)` (especially "no test" Requirements).
-- If a spec ↔ code conflict needs an architectural decision → hand off via `runSubagent("dev-tech-lead", ...)`.
-- If a security hole appears in the documented behavior → hand off via `runSubagent("dev-security", ...)`.
-- After each output → evaluate via `runSubagent("dev-guardian", ...)`.
+- To write regression tests from the extracted spec → hand off to `dev-test-engineer` (especially "no test" Requirements).
+- If a spec ↔ code conflict needs an architectural decision → hand off to `dev-tech-lead`.
+- If a security hole appears in the documented behavior → hand off to `dev-security`.
+- After each output → evaluate via `dev-guardian`.

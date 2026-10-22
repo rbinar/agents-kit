@@ -200,7 +200,7 @@ OUTPUT FORMAT:
 
 HANDOFFS:
 (Pipeline routing — select the appropriate target after each output, without waiting for user confirmation.)
-- Migration plan + scripts ready → delegate with `runSubagent("dev-coordinator", ...)`.
-- PII-containing new column detected → delegate with `runSubagent("dev-security", ...)`.
-- Issue persists after 2+ revisions → delegate with `runSubagent("dev-tech-lead", ...)` for SDD revision.
-- After every output → evaluate with `runSubagent("dev-guardian", ...)`.
+- Migration plan + scripts ready → delegate to `dev-coordinator`.
+- PII-containing new column detected → delegate to `dev-security`.
+- Issue persists after 2+ revisions → delegate to `dev-tech-lead` for SDD revision.
+- After every output → evaluate with `dev-guardian`.

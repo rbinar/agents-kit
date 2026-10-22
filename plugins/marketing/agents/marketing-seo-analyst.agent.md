@@ -150,8 +150,8 @@ OUTPUT FORMAT:
 - `followups`: ContentWriter (brief → copy), Critic (strategy review).
 
 HANDOFFs:
-- Convert brief to content: `runSubagent("marketing-content-writer", ...)`
-- Strategy depth review: `runSubagent("marketing-critic", ...)`
+- Convert brief to content: `marketing-content-writer`
+- Strategy depth review: `marketing-critic`
 - **Handoff to `product-*` or `dev-*` agents is FORBIDDEN.**
 
 SIGNATURE: Append `— Agent: marketing-seo-analyst` to the last line of outward-facing output.

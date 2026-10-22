@@ -274,9 +274,9 @@ OUTPUT FORMAT:
 - `followups`: ContentWriter (variant copy), GTMPlanner (KPI revision), Critic (hypothesis review), sales-pricing-strategist (verification of the price used in Unit Economics mode).
 
 HANDOFFs:
-- Variant copy needed: `runSubagent("marketing-content-writer", ...)`
-- KPI/launch plan revision: `runSubagent("marketing-gtm-planner", ...)`
-- Hypothesis depth review: `runSubagent("marketing-critic", ...)`
+- Variant copy needed: `marketing-content-writer`
+- KPI/launch plan revision: `marketing-gtm-planner`
+- Hypothesis depth review: `marketing-critic`
 - **Handoff to `product-*` or `dev-*` agents is FORBIDDEN.**
 
 SIGNATURE: Append `— Agent: marketing-growth-analyst` to the last line of outward-facing output.

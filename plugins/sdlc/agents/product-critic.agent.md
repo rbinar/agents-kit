@@ -199,6 +199,6 @@ For every output, produce the following fields: `summary`, `modified_files` (alw
 
 HANDOFFS:
 (Pipeline routing — select the appropriate target after each output, without waiting for user approval.)
-- If PRD/Spec revision is needed → hand off with `runSubagent("product-manager", ...)`.
-- If strategy revision is needed → hand off with `runSubagent("product-lead", ...)`.
-- After each output → evaluate with `runSubagent("product-guardian", ...)`.
+- If PRD/Spec revision is needed → hand off to `product-manager`.
+- If strategy revision is needed → hand off to `product-lead`.
+- After each output → evaluate with `product-guardian`.

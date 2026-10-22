@@ -246,11 +246,11 @@ For every evaluation, produce the following fields: `summary`, `modified_files` 
 
 HANDOFFS:
 (Pipeline routing — select the appropriate target based on risk classification; Guardian → Guardian handoff creates a loop — prohibited.)
-- Lead output ready → delegate to PRD step with `runSubagent("product-manager", ...)`.
-- Manager PRD ready → delegate with `runSubagent("product-epic-planner", ...)` or `runSubagent("product-story-writer", ...)`.
-- EpicPlanner ready → delegate with `runSubagent("product-story-writer", ...)`.
-- StoryWriter INVEST passed → delegate with `runSubagent("product-sprint-planner", ...)`.
-- SprintPlanner sprint plan complete → delegate with `runSubagent("dev-facilitator", ...)`.
-- Output carries a depth concern (shallow but clean, missing criteria/persona) → get a depth assessment with `runSubagent("product-critic", ...)`.
-- Non-product-* input → redirect with `runSubagent("product-facilitator", ...)`.
+- Lead output ready → delegate to PRD step with `product-manager`.
+- Manager PRD ready → delegate to `product-epic-planner` or `product-story-writer`.
+- EpicPlanner ready → delegate to `product-story-writer`.
+- StoryWriter INVEST passed → delegate to `product-sprint-planner`.
+- SprintPlanner sprint plan complete → delegate to `dev-facilitator`.
+- Output carries a depth concern (shallow but clean, missing criteria/persona) → get a depth assessment with `product-critic`.
+- Non-product-* input → redirect to `product-facilitator`.
 - High risk → request user approval, do not delegate.

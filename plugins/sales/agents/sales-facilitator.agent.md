@@ -80,7 +80,7 @@ OUTPUT FORMAT:
 In addition to the JSON classification, produce the following fields for every output: `summary`, `modified_files` (always empty — Facilitator does not write files), `decisions`, `risks`, `followups`.
 
 HANDOFFS:
-- Only to `sales-*` agents: `runSubagent("sales-{target}", ...)`
+- Only to `sales-*` agents: `sales-{target}`
 - For multi-agent needs: route to primary, list secondary_agents in output.
 
 SIGNATURE: Append `— Agent: sales-facilitator` to the last line of outward-facing output.

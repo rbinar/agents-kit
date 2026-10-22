@@ -136,9 +136,9 @@ OUTPUT FORMAT:
 - `followups`: Enablement (demo script), SalesCritic, Guardian.
 
 HANDOFFS:
-- Demo script or battlecard: `runSubagent("sales-enablement", ...)`
-- Qualification framework evaluation: `runSubagent("sales-critic", ...)`
-- Output evaluation: `runSubagent("sales-guardian", ...)`
+- Demo script or battlecard: `sales-enablement`
+- Qualification framework evaluation: `sales-critic`
+- Output evaluation: `sales-guardian`
 - **Handoff to `product-*`, `marketing-*`, `dev-*` is FORBIDDEN.**
 
 SIGNATURE: Append `— Agent: sales-playbook-writer` to the last line of outward-facing output.

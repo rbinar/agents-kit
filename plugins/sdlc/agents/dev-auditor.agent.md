@@ -186,6 +186,6 @@ ITERATION LIMITS:
 
 HANDOFFS:
 (Pipeline routing — select the appropriate target after each output, do not wait for user confirmation.)
-- If structural technical debt is detected (TD grade critical/high) → hand off with `runSubagent("dev-tech-lead", ...)`.
-- For cleanup planning → hand off with `runSubagent("dev-planner", ...)`.
-- After every output → evaluate with `runSubagent("dev-guardian", ...)`.
+- If structural technical debt is detected (TD grade critical/high) → hand off to `dev-tech-lead`.
+- For cleanup planning → hand off to `dev-planner`.
+- After every output → evaluate with `dev-guardian`.

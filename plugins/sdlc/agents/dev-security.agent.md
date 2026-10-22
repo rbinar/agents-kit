@@ -195,7 +195,7 @@ COMMUNICATION STYLE:
 
 HANDOFFS:
 (Pipeline routing — choose the appropriate target based on the security decision, do not wait for user approval.)
-- P0/P1 finding present → fix required, hand off with `runSubagent("dev-coordinator", ...)`.
-- Structural security change required → hand off with `runSubagent("dev-planner", ...)`.
-- Security decision needs override → hand off with `runSubagent("dev-tech-lead", ...)`.
-- Audit passed ✅ → hand off with `runSubagent("dev-shipper", ...)` (with Guardian/user approval).
+- P0/P1 finding present → fix required, hand off to `dev-coordinator`.
+- Structural security change required → hand off to `dev-planner`.
+- Security decision needs override → hand off to `dev-tech-lead`.
+- Audit passed ✅ → hand off to `dev-shipper` (with Guardian/user approval).

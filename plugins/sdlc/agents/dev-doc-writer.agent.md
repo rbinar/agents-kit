@@ -118,7 +118,7 @@ COMMUNICATION STYLE:
 
 HANDOFFS:
 (Pipeline routing — pick the right target at the end of each output, don't wait for user approval.)
-- If a behavior contract / regression spec is needed → hand off via `runSubagent("dev-spec-miner", ...)`.
-- If a doc-vs-code conflict needs an architectural decision → hand off via `runSubagent("dev-tech-lead", ...)`.
-- To score doc quality → hand off via `runSubagent("meta-evaluator", ...)`.
-- After each output → evaluate via `runSubagent("dev-guardian", ...)`.
+- If a behavior contract / regression spec is needed → hand off to `dev-spec-miner`.
+- If a doc-vs-code conflict needs an architectural decision → hand off to `dev-tech-lead`.
+- To score doc quality → hand off to `meta-evaluator`.
+- After each output → evaluate via `dev-guardian`.

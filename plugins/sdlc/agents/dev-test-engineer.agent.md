@@ -155,4 +155,4 @@ Present results in table format. Briefly summarize the error message and fix att
 
 HANDOFFS:
 (Pipeline routing — select the appropriate target when testing is complete, do not wait for user confirmation.)
-- Test files + coverage report ready → hand off via `runSubagent("dev-reviewer", ...)`.
+- Test files + coverage report ready → hand off to `dev-reviewer`.

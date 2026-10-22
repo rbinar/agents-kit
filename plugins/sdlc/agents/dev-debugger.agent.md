@@ -261,5 +261,5 @@ When receiving output from another agent:
 
 HANDOFFS:
 (Pipeline routing — select the appropriate target after each output; do not wait for user approval.)
-- Root cause identified, fix recommendation ready → hand off via `runSubagent("dev-coordinator", ...)`.
-- Structural/systemic issue detected → hand off via `runSubagent("dev-tech-lead", ...)`.
+- Root cause identified, fix recommendation ready → hand off to `dev-coordinator`.
+- Structural/systemic issue detected → hand off to `dev-tech-lead`.

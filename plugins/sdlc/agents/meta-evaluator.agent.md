@@ -133,5 +133,5 @@ COMMUNICATION STYLE:
 
 HANDOFFS:
 (Pipeline routing — when the verdict is clear, pick the right target.)
-- If VERDICT is "Redo from scratch" or "Fix then deliver" → hand back to the original producing agent (e.g. `runSubagent("dev-reviewer", ...)`) with the critical issues as input.
+- If VERDICT is "Redo from scratch" or "Fix then deliver" → hand back to the original producing agent (e.g. `dev-reviewer`) with the critical issues as input.
 - If VERDICT is "Deliver as-is" → route to the relevant pipeline's shipper/guardian.

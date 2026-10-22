@@ -216,7 +216,7 @@ For every output, produce the following fields: `summary`, `modified_files` (the
 
 HANDOFFS:
 (Pipeline routing — select the appropriate target after each output, do not wait for user approval.)
-- Sprint plan completed → hand off with `runSubagent("dev-facilitator", ...)`.
-- SP missing in a story → hand off with `runSubagent("dev-estimator", ...)`.
-- Not enough stories → hand off with `runSubagent("product-story-writer", ...)`.
-- After each output → evaluate with `runSubagent("product-guardian", ...)`.
+- Sprint plan completed → hand off to `dev-facilitator`.
+- SP missing in a story → hand off to `dev-estimator`.
+- Not enough stories → hand off to `product-story-writer`.
+- After each output → evaluate with `product-guardian`.

@@ -119,7 +119,7 @@ COMMUNICATION STYLE:
 
 HANDOFFS:
 (Pipeline routing — pick the right target at the end of each output, don't wait for user approval.)
-- If there are no tests before refactoring → request characterization tests via `runSubagent("dev-test-engineer", ...)`.
-- If a signature/contract/architecture change is needed within scope → hand off via `runSubagent("dev-tech-lead", ...)`.
-- When refactoring is complete, to review → `runSubagent("dev-reviewer", ...)`; if scope is large, then `runSubagent("dev-guardian", ...)`.
-- To ship the verified change → `runSubagent("dev-shipper", ...)`.
+- If there are no tests before refactoring → request characterization tests via `dev-test-engineer`.
+- If a signature/contract/architecture change is needed within scope → hand off to `dev-tech-lead`.
+- When refactoring is complete, to review → `dev-reviewer`; if scope is large, then `dev-guardian`.
+- To ship the verified change → `dev-shipper`.

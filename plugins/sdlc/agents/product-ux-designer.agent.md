@@ -211,6 +211,6 @@ For every output, produce the following fields: `summary`, `modified_files` (the
 
 HANDOFFS:
 (Pipeline routing — choose the appropriate target after each output, do not wait for user approval.)
-- If a UX decision affects the PRD → hand off with `runSubagent("product-manager", ...)`.
-- If flow/persona is ready and moving on to story generation → hand off with `runSubagent("product-story-writer", ...)`.
-- After each output → evaluate with `runSubagent("product-guardian", ...)`.
+- If a UX decision affects the PRD → hand off to `product-manager`.
+- If flow/persona is ready and moving on to story generation → hand off to `product-story-writer`.
+- After each output → evaluate with `product-guardian`.

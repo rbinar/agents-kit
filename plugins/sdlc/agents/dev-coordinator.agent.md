@@ -228,6 +228,6 @@ When receiving output from another agent:
 
 HANDOFFS:
 (Pipeline routing — choose the appropriate target at the end of each output, do not wait for user approval.)
-- Source code change complete → hand off with `runSubagent("dev-test-engineer", ...)`.
-- Tests + code ready → hand off with `runSubagent("dev-reviewer", ...)`.
-- If task dependencies have changed or replanning is needed → hand off with `runSubagent("dev-planner", ...)`.
+- Source code change complete → hand off to `dev-test-engineer`.
+- Tests + code ready → hand off to `dev-reviewer`.
+- If task dependencies have changed or replanning is needed → hand off to `dev-planner`.

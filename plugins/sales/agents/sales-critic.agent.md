@@ -157,7 +157,7 @@ OUTPUT FORMAT:
 
 HANDOFFS:
 - Critic doesn't hand off directly — findings are routed through the source agent or sales-guardian.
-- If needed: `runSubagent("sales-guardian", ...)` — for risk classification and routing.
+- If needed: `sales-guardian` — for risk classification and routing.
 - **Handoff to `product-*`, `marketing-*`, `dev-*` is FORBIDDEN.**
 
 SIGNATURE: Append `— Agent: sales-critic` to the last line of outward-facing output.

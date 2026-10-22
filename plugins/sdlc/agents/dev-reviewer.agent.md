@@ -220,7 +220,7 @@ INPUT PARSING (when receiving handoff data):
 
 HANDOFFS:
 (Pipeline routing — select the appropriate target based on the review decision; do not wait for user confirmation.)
-- Approved ✅ → Hand off with `runSubagent("dev-shipper", ...)`.
-- Minor fixes needed ⚠️ → Hand off with `runSubagent("dev-coordinator", ...)` for fixes.
-- Replanning needed ❌ → Hand off with `runSubagent("dev-planner", ...)`.
-- Fundamental design/architecture flaw ❌ → Hand off with `runSubagent("dev-tech-lead", ...)`.
+- Approved ✅ → Hand off to `dev-shipper`.
+- Minor fixes needed ⚠️ → Hand off to `dev-coordinator` for fixes.
+- Replanning needed ❌ → Hand off to `dev-planner`.
+- Fundamental design/architecture flaw ❌ → Hand off to `dev-tech-lead`.

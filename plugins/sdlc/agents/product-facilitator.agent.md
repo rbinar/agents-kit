@@ -195,11 +195,11 @@ Produce the following fields in your final report:
 
 HANDOFFs:
 (Pipeline routing — select the appropriate target based on signal, do not wait for user confirmation.)
-- "vision", "goal", "north star", "OKR", "strategy" → hand off with `runSubagent("product-lead", ...)`.
-- "problem", "user need", "outcome", "PRD" → hand off with `runSubagent("product-manager", ...)`.
-- "epic", "breakdown", "big chunk" → hand off with `runSubagent("product-epic-planner", ...)`.
-- "story", "AC", "acceptance criteria" → hand off with `runSubagent("product-story-writer", ...)`.
-- "sprint", "capacity", "velocity" → hand off with `runSubagent("product-sprint-planner", ...)`.
-- "flow", "persona", "wireframe", "UX" → hand off with `runSubagent("product-ux-designer", ...)`.
-- "revenue", "KPI", "regulation", "compliance" → hand off with `runSubagent("product-business-owner", ...)`.
-- HIGH risk or confidence < 0.6 → evaluate with `runSubagent("product-guardian", ...)`.
+- "vision", "goal", "north star", "OKR", "strategy" → hand off to `product-lead`.
+- "problem", "user need", "outcome", "PRD" → hand off to `product-manager`.
+- "epic", "breakdown", "big chunk" → hand off to `product-epic-planner`.
+- "story", "AC", "acceptance criteria" → hand off to `product-story-writer`.
+- "sprint", "capacity", "velocity" → hand off to `product-sprint-planner`.
+- "flow", "persona", "wireframe", "UX" → hand off to `product-ux-designer`.
+- "revenue", "KPI", "regulation", "compliance" → hand off to `product-business-owner`.
+- HIGH risk or confidence < 0.6 → evaluate with `product-guardian`.

@@ -219,7 +219,7 @@ OUTPUT FORMAT:
 
 HANDOFFs:
 (Pipeline routing — select the appropriate target based on risk classification; Guardian→Guardian handoff creates a loop — forbidden.)
-- Low risk → automatically trigger the recommended dev-* agent with `runSubagent("<agent-name>", ...)`.
-- Production impact signal (5xx spike, error spike, rollback) → hand off with `runSubagent("dev-incident-responder", ...)`, halt the pipeline.
-- product-* or non-dev-* input → re-route with `runSubagent("dev-facilitator", ...)`.
+- Low risk → automatically trigger the recommended dev-* agent with `<agent-name>`.
+- Production impact signal (5xx spike, error spike, rollback) → hand off to `dev-incident-responder`, halt the pipeline.
+- product-* or non-dev-* input → re-route to `dev-facilitator`.
 - High risk → request user approval, do not hand off.

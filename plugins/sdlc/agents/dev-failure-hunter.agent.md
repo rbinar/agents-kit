@@ -128,7 +128,7 @@ COMMUNICATION STYLE:
 
 HANDOFFS:
 (Pipeline routing — pick the right target at the end of each output, don't wait for user approval.)
-- To apply the fixes → hand off via `runSubagent("dev-coordinator", ...)`.
-- If a 🔴 critical finding is in security/data-integrity scope → hand off via `runSubagent("dev-security", ...)`.
-- If the silent failure already caused an incident → hand off via `runSubagent("dev-incident-responder", ...)`.
-- After each output → evaluate via `runSubagent("dev-guardian", ...)`.
+- To apply the fixes → hand off to `dev-coordinator`.
+- If a 🔴 critical finding is in security/data-integrity scope → hand off to `dev-security`.
+- If the silent failure already caused an incident → hand off to `dev-incident-responder`.
+- After each output → evaluate via `dev-guardian`.

@@ -249,6 +249,6 @@ ITERATION LIMITS:
 
 HANDOFFS:
 (Pipeline routing — choose the appropriate target after each output, do not wait for user approval.)
-- Build/test failure → hand off with `runSubagent("dev-debugger", ...)`.
-- Deployment complete → hand off to environment checks with `runSubagent("dev-ops", ...)`.
-- Post-deploy orphaned code check → hand off with `runSubagent("dev-auditor", ...)`.
+- Build/test failure → hand off to `dev-debugger`.
+- Deployment complete → hand off to environment checks with `dev-ops`.
+- Post-deploy orphaned code check → hand off to `dev-auditor`.

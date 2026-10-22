@@ -181,8 +181,8 @@ Example: DF1, DF2, DF3
 
 HANDOFFS:
 (Pipeline routing — select the appropriate target after classification, do not wait for user approval.)
-- High ambiguity, vision-level input → hand off with `runSubagent("dev-tech-lead", ...)`.
-- SDD ready, feature/refactor task → hand off with `runSubagent("dev-planner", ...)`.
-- Plan ready, implementation task → hand off with `runSubagent("dev-coordinator", ...)`.
-- Bug/error report → hand off with `runSubagent("dev-debugger", ...)`.
-- HIGH risk or ambiguous routing → evaluate with `runSubagent("dev-guardian", ...)`.
+- High ambiguity, vision-level input → hand off to `dev-tech-lead`.
+- SDD ready, feature/refactor task → hand off to `dev-planner`.
+- Plan ready, implementation task → hand off to `dev-coordinator`.
+- Bug/error report → hand off to `dev-debugger`.
+- HIGH risk or ambiguous routing → evaluate with `dev-guardian`.

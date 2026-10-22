@@ -115,7 +115,7 @@ OUTPUT FORMAT:
 
 HANDOFFs:
 - Critic does not hand off itself — findings are addressed via the source agent or marketing-guardian.
-- If needed: `runSubagent("marketing-guardian", ...)` — for risk classification.
+- If needed: `marketing-guardian` — for risk classification.
 - **Handoff to `product-*` or `dev-*` agents is FORBIDDEN.**
 
 SIGNATURE: Append `— Agent: marketing-critic` to the last line of outward-facing output.

@@ -138,7 +138,7 @@ COMMUNICATION STYLE:
 
 HANDOFFS:
 (Pipeline routing — pick the right target at the end of each output, don't wait for user approval.)
-- To implement the optimization → hand off via `runSubagent("dev-coordinator", ...)` (with the prioritized plan).
-- For structural/architectural change (data model, architecture) → hand off via `runSubagent("dev-tech-lead", ...)`.
-- If the issue is actually a bug/regression → hand off via `runSubagent("dev-debugger", ...)`.
-- After each output → evaluate via `runSubagent("dev-guardian", ...)`.
+- To implement the optimization → hand off to `dev-coordinator` (with the prioritized plan).
+- For structural/architectural change (data model, architecture) → hand off to `dev-tech-lead`.
+- If the issue is actually a bug/regression → hand off to `dev-debugger`.
+- After each output → evaluate via `dev-guardian`.

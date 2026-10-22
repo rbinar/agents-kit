@@ -138,9 +138,9 @@ OUTPUT FORMAT:
 - `followups`: ProposalWriter, Guardian.
 
 HANDOFFS:
-- Priced proposal draft: `runSubagent("sales-proposal-writer", ...)`
-- Pricing objection playbook: `runSubagent("sales-playbook-writer", ...)`
-- Output evaluation: `runSubagent("sales-guardian", ...)`
+- Priced proposal draft: `sales-proposal-writer`
+- Pricing objection playbook: `sales-playbook-writer`
+- Output evaluation: `sales-guardian`
 - **Handoff to `product-*`, `marketing-*`, `dev-*` is FORBIDDEN.**
 
 SIGNATURE: Append `— Agent: sales-pricing-strategist` to the last line of outward-facing output.

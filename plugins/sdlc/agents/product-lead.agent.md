@@ -193,6 +193,6 @@ For every output, produce the following fields: `summary`, `modified_files` (the
 
 HANDOFFs:
 (Pipeline routing — select the appropriate target at the end of each output, do not wait for user approval.)
-- Goal/strategy document ready → hand off with `runSubagent("product-manager", ...)`.
-- Design/strategy needs critique → hand off with `runSubagent("product-critic", ...)`.
-- After each output → evaluate with `runSubagent("product-guardian", ...)`.
+- Goal/strategy document ready → hand off to `product-manager`.
+- Design/strategy needs critique → hand off to `product-critic`.
+- After each output → evaluate with `product-guardian`.

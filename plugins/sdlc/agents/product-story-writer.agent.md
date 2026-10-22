@@ -228,6 +228,6 @@ For every output, produce the following fields: `summary`, `modified_files` (the
 
 HANDOFFS:
 (Pipeline routing — choose the appropriate target after each output, do not wait for user approval.)
-- Story ready → trigger effort estimation with `runSubagent("dev-estimator", ...)`.
-- INVEST passed and estimate available → hand off with `runSubagent("product-sprint-planner", ...)`.
-- After each output → evaluate with `runSubagent("product-guardian", ...)`.
+- Story ready → trigger effort estimation with `dev-estimator`.
+- INVEST passed and estimate available → hand off to `product-sprint-planner`.
+- After each output → evaluate with `product-guardian`.

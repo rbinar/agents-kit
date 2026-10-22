@@ -225,6 +225,6 @@ For every output, produce the following fields: `summary`, `modified_files` (the
 
 HANDOFFS:
 (Pipeline routing — at the end of each output, select the appropriate target; do not wait for user approval.)
-- Epic list ready → hand off via `runSubagent("product-story-writer", ...)`.
-- PRD incomplete or insufficient → hand back via `runSubagent("product-manager", ...)`.
-- After each output → evaluate via `runSubagent("product-guardian", ...)`.
+- Epic list ready → hand off to `product-story-writer`.
+- PRD incomplete or insufficient → hand back to `product-manager`.
+- After each output → evaluate via `product-guardian`.

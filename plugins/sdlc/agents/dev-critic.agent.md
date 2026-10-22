@@ -198,6 +198,6 @@ ITERATION LIMITS:
 
 HANDOFFS:
 (Pipeline routing — after each output, select the appropriate target without waiting for user confirmation.)
-- If revision is needed after critique → hand off via `runSubagent("dev-planner", ...)`.
-- If fundamental design revision is needed → hand off via `runSubagent("dev-tech-lead", ...)`.
-- After every output → evaluate via `runSubagent("dev-guardian", ...)`.
+- If revision is needed after critique → hand off to `dev-planner`.
+- If fundamental design revision is needed → hand off to `dev-tech-lead`.
+- After every output → evaluate via `dev-guardian`.

@@ -241,8 +241,8 @@ For every output, produce the following fields: `summary`, `modified_files` (the
 
 HANDOFFS:
 (Pipeline routing — select the appropriate target at the end of each output, do not wait for user approval.)
-- PRD ready → hand off with `runSubagent("product-epic-planner", ...)`.
-- Feature Spec ready → hand off with `runSubagent("product-story-writer", ...)`.
-- User flow design needed → hand off with `runSubagent("product-ux-designer", ...)`.
-- PRD/Spec needs critique → hand off with `runSubagent("product-critic", ...)`.
-- After each output → evaluate with `runSubagent("product-guardian", ...)`.
+- PRD ready → hand off to `product-epic-planner`.
+- Feature Spec ready → hand off to `product-story-writer`.
+- User flow design needed → hand off to `product-ux-designer`.
+- PRD/Spec needs critique → hand off to `product-critic`.
+- After each output → evaluate with `product-guardian`.

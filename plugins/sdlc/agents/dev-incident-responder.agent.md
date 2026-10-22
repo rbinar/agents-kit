@@ -222,8 +222,8 @@ OUTPUT FORMAT:
 
 HANDOFFS:
 (Pipeline routing — trigger appropriate targets in parallel or sequentially depending on the incident phase.)
-- At the start of Phase 2 → investigate in parallel with `runSubagent("dev-ops", ...)` and `runSubagent("dev-debugger", ...)`.
-- If an emergency code fix is needed → delegate with `runSubagent("dev-coordinator", ...)`.
-- If a mitigation step is ready to deploy → delegate with `runSubagent("dev-shipper", ...)`.
-- 2+ rollbacks → delegate the deployment freeze decision with `runSubagent("dev-tech-lead", ...)`.
-- Incident RESOLVED/MITIGATED → delegate to prevention planning with `runSubagent("dev-auditor", ...)`.
+- At the start of Phase 2 → investigate in parallel with `dev-ops` and `dev-debugger`.
+- If an emergency code fix is needed → delegate to `dev-coordinator`.
+- If a mitigation step is ready to deploy → delegate to `dev-shipper`.
+- 2+ rollbacks → delegate the deployment freeze decision with `dev-tech-lead`.
+- Incident RESOLVED/MITIGATED → delegate to prevention planning with `dev-auditor`.
