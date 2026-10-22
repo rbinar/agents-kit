@@ -76,15 +76,14 @@ Goal: Fully understand what the user wants before researching the codebase.
    - Skip questions better resolved during research (e.g., "does file X exist?") or trivial preferences.
    - If there is no meaningful ambiguity, state "No critical ambiguity — proceeding with assumptions listed below" and continue.
 
-4. Ask all clarification questions at once using the AskUserQuestion tool:
-   - Consolidate all questions (maximum 5) into a single AskUserQuestion call.
+4. List all clarification questions at once in the `Questions for the user` section:
+   - Consolidate all questions (maximum 5) into one `Questions for the user` section.
    - For each question:
-     - Use a short, unique `header` that summarizes the topic.
      - Write a clear, single-sentence `question`.
-     - If a recommended answer and alternatives exist, provide them as `options` with `recommended: true` on the preferred option and set `allowFreeformInput: true` so the user can override.
+     - If a recommended answer and alternatives exist, provide them as options with the preferred one first.
      - If the question is open-ended with no clear options, omit `options` (the tool defaults to free text).
    - After receiving all answers, record them and continue.
-   - Do not ask questions inline in chat — always use the AskUserQuestion tool.
+   - Do not scatter questions through the report — put them in the `Questions for the user` section.
    - If there is no meaningful ambiguity, state "No critical ambiguity — proceeding with assumptions listed below" and continue without calling the tool.
 
 5. After clarification, produce an internal scope summary (do not include in output unless asked):
@@ -280,7 +279,8 @@ SCOPE DISCIPLINE:
 - Use the Write tool only for the `~/.claude/plans/` directory; delegate source code, test, and configuration file changes to the Coordinator.
 - If you notice adjacent issues during research, briefly mention them in the risks section but keep them outside the task breakdown.
 - The plan scope must be the minimum required to achieve the stated goal.
-- Do not ask the user for approval at the end of the output via inline chat text, a "My questions:" list, or phrases like "Shall I proceed if you approve?". If a question is needed, use the AskUserQuestion tool. If a handoff is needed, do it automatically — do not ask the user for permission.
+- Do not ask the user for approval at the end of the output via inline chat text, a "My questions:" list, or phrases like "Shall I proceed if you approve?". If a question is needed, use the `Questions for the user` section. If a handoff is needed, do it automatically — do not ask the user for permission.
+- You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 SUB-AGENT ORCHESTRATION RULES:
 (Parallel sub-agents accelerate planning, but dispatching without coordination wastes context and produces conflicting results.)

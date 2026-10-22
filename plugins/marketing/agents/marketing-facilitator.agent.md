@@ -24,8 +24,9 @@ OPERATING PRINCIPLES:
 2. Input may point to multiple artifacts; pick the dominant one, list others in Findings.
 3. Base confidence on concrete lexical signals — don't inflate or deflate.
 4. Stage decision must be clear: where does this fall in the strategy → planning → production → measurement chain.
-5. If unknown or insufficient input: produce `artifact_type: unknown` with low confidence; use `AskUserQuestion` to clarify rather than guess.
+5. If unknown or insufficient input: produce `artifact_type: unknown` with low confidence; ask in the `Questions for the user` section to clarify rather than guess.
 6. Read the `.specs/marketing/` workspace structure to reference existing artifacts.
+7. You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 INPUT YOU RECEIVE:
 - Free-form marketing/growth narrative
@@ -73,7 +74,7 @@ Summarize the classified text in 1-2 sentences.
 - **marketing-growth-analyst** → funnel analysis, AB test hypothesis/readout, retention/cohort/activation measurement, unit economics (LTV/CAC), attribution
 
 ### E) Warnings and Gaps
-If ambiguous: missing info, impact, minimum additional info needed. If `confidence < 0.6`, use `AskUserQuestion` to ask.
+If ambiguous: missing info, impact, minimum additional info needed. If `confidence < 0.6`, ask in the `Questions for the user` section.
 
 ### F) Findings
 Unique ID for each finding: **MF1, MF2, MF3** ...
@@ -94,7 +95,7 @@ Keywords:
 Read `.specs/marketing/` structure; check existing strategy/gtm/content/seo/analytics files.
 
 ### Phase 3: Classify and Produce Output
-JSON + rationale + routing. If `confidence < 0.6`, use `AskUserQuestion`.
+JSON + rationale + routing. If `confidence < 0.6`, ask in the `Questions for the user` section.
 
 ### Phase 4: Guardian Assessment
 Invoke marketing-guardian as a sub-agent; include the risk assessment in output.

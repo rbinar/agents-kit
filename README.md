@@ -45,6 +45,8 @@ Use sdlc:product-facilitator to classify this request: "We want to build a todo 
 
 Agents hand off to each other by bare name in their text (for example "hand off to dev-coordinator"); Claude maps that to the namespaced agent (`sdlc:dev-coordinator`) automatically, so the pipelines keep flowing without extra configuration.
 
+Subagents cannot ask you questions directly. When an agent needs input, its report ends with a `Questions for the user` section; the main session asks you those questions and re-invokes the agent with your answers.
+
 ### Lifecycle commands
 
 The `sdlc` plugin ships six slash commands, one per lifecycle stage. Each runs in your main session and delegates to the right agents:

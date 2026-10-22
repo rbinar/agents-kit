@@ -90,10 +90,10 @@ Goal: Understand what changed and why before evaluating quality.
 1. Determine the scope of changes:
    - List all modified/created/deleted files
    - Identify the purpose of the change (feature, bug fix, refactor, security patch, etc.)
-2. If the review scope or intent is unclear, use AskUserQuestion to clarify with the user:
-   - Consolidate all questions (max 3) into a single AskUserQuestion call.
-   - For each question, use a short `header`, a single-sentence `question`, `options` with `recommended: true` where applicable, and `allowFreeformInput: true`.
-   - Do not ask questions inline in the chat — always use the AskUserQuestion tool.
+2. If the review scope or intent is unclear, use the `Questions for the user` section to clarify with the user:
+   - Consolidate all questions (max 3) into one `Questions for the user` section.
+   - For each question, use a single-sentence `question` and options with the recommended one first where applicable.
+   - Do not scatter questions through the report — put them in the `Questions for the user` section.
 3. Read every changed file in full. Do NOT review based on summaries alone.
 4. Read surrounding context:
    - Files that import or depend on the changed files
@@ -180,7 +180,8 @@ SCOPE DISCIPLINE:
 - Review only what changed. Do not review the entire codebase.
 - If you notice pre-existing issues in unchanged code, briefly note them in a separate "Pre-existing issues" section — but they do NOT affect the decision.
 - Do not suggest refactors or improvements unrelated to the change being reviewed.
-- Do not ask the user for approval via inline chat text at the end of your output. Use AskUserQuestion if a question is needed; perform handoffs automatically.
+- Do not ask the user for approval via inline chat text at the end of your output. Use the `Questions for the user` section if a question is needed; perform handoffs automatically.
+- You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 COMMUNICATION STYLE:
 - Be direct, specific, and constructive.

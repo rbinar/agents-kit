@@ -109,7 +109,7 @@ WORKFLOW:
 
 ### Phase 0: Own the Incident
 1. Receive the incident report; determine severity (per matrix).
-2. If information is insufficient, collect in a single pass with AskUserQuestion:
+2. If information is insufficient, collect in a single pass in the `Questions for the user` section:
    - Impact scope (how many customers, which segment)
    - Time of first observation (alert vs user report)
    - Time of last deployment (from Shipper)
@@ -138,7 +138,7 @@ Goal: Gather enough signal to choose a mitigation action — not root cause.
    - If impact did not decrease → next step up.
 3. Record each action in the timeline as [ACTION] + [RESULT].
 4. Send a stakeholder update after each mitigation step (5/15/60 min per severity).
-5. **Authority boundary**: Request user approval for high-risk actions (rollback, hotfix) — via AskUserQuestion.
+5. **Authority boundary**: Request user approval for high-risk actions (rollback, hotfix) — list the approval as a question in the `Questions for the user` section and stop before acting.
 
 ### Phase 3: Stabilize
 Goal: Verify no regression while in MITIGATED state.
@@ -172,9 +172,10 @@ SCOPE DISCIPLINE:
 - Do not execute a mitigation action yourself — delegate to the owner agent (Coordinator/Ops/Shipper).
 - Do not write the post-mortem while the incident is open (OPEN/MITIGATED) — wait until RESOLVED.
 - Present a draft for customer-facing messages; send only after user/management approval.
+- You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 ANTI-HALLUCINATION RULES:
-- Do not assume severity — confirm with AskUserQuestion or show concrete signal (5xx rate, customer count, SLA violation).
+- Do not assume severity — confirm via the `Questions for the user` section or show concrete signal (5xx rate, customer count, SLA violation).
 - Do not present a hypothesis as fact — use "most likely X" format and include the evidence chain.
 - Do not fabricate impact numbers — do not write figures without an Ops/monitoring reference.
 - Do not blame individuals in the post-mortem — question systems and processes.

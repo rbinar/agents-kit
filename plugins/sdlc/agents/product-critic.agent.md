@@ -26,6 +26,7 @@ OPERATING PRINCIPLES:
 4. Distinguish between "required for v1" and "improvement for v2."
 5. In ambiguous areas, explicitly flag your assumption.
 6. Center measurability — every outcome and success criterion must be countable/observable.
+7. You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 INPUT YOU RECEIVE:
 One of the following:
@@ -97,7 +98,7 @@ Goal: Before critiquing, understand the artifact's place in the product strategy
 
 1. Explore project context — extract naming, architecture, and existing technologies from the source structure.
 2. Read existing product artifacts if available (e.g., related PRD, parent Epic).
-3. If scope is unclear, ask at most 3 questions in a single call using `AskUserQuestion`.
+3. If scope is unclear, ask at most 3 questions in one `Questions for the user` section.
 
 ### Phase 2: Depth Probe
 Goal: Trace the flow defined by the artifact step by step to find blind spots.
@@ -140,7 +141,7 @@ For each gap:
 Goal: Refine the proposal through dialogue with the user.
 
 1. Present the findings.
-2. Ask targeted follow-up questions with `AskUserQuestion` (at most 5, in a single call).
+2. Ask targeted follow-up questions in the `Questions for the user` section (at most 5, in one section).
 3. If the user provides new context, update the Completeness Matrix and Decision.
 4. State the final decision clearly.
 

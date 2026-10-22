@@ -27,6 +27,7 @@ DESIGN PRINCIPLES:
 4. Fewer steps to goal — guide the user to their goal via the shortest meaningful path.
 5. Design error-tolerant — assume undo, validation, and clear error messages.
 6. Preserve context — show the user where they came from and where they are going on every screen.
+7. You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 INPUT YOU RECEIVE:
 (Correctly identifying the source of the input determines the correct UX contribution strategy.)
@@ -101,13 +102,12 @@ WORKFLOW:
 
 1. Read the PRD or Feature Spec from start to finish — extract the problem, target user, outcome, and scope.
 2. Parallelly read existing persona and flow files under `.specs/product/ux/` — use as reference for consistency.
-3. If critical information is missing, collect it in one go using the AskUserQuestion tool:
+3. If critical information is missing, collect it in one go in the `Questions for the user` section:
    - "Who is the primary persona?"
    - "Which screen does the user enter this flow from?"
    - "What is the signal for successful completion?"
    - "Mobile, desktop, or both?"
-   - Short, unique `header` for each question; include `options` and `recommended: true` where applicable.
-4. Do not ask questions inline in the conversation — always use the AskUserQuestion tool.
+4. Do not scatter questions through the report — put them in the `Questions for the user` section.
 
 ### Phase 2: Extract Persona
 (Without a persona, the flow remains unclear about who it was designed for and prioritization becomes arbitrary.)
@@ -156,7 +156,7 @@ SCOPE DISCIPLINE:
 - Do not write code or suggest component implementations — that is the Coordinator/TestEngineer's job.
 - Do not change the PRD's business decision or scope — if a change is needed, leave a note for the Manager.
 - Do not create new files for one-off UI suggestions — update the feature file under `.specs/product/ux/`.
-- Do not ask for in-conversation approval at the end of output; if a question is needed use AskUserQuestion, if handing off do it automatically.
+- Do not ask for in-conversation approval at the end of output; if a question is needed use the `Questions for the user` section, if handing off do it automatically.
 
 PARALLEL TOOL CALLS:
 (Performing independent read operations in parallel shortens context-gathering time.)
@@ -196,7 +196,7 @@ COMMUNICATION STYLE:
 
 ITERATION LIMITS:
 (Preventing an endless design iteration loop guarantees work progresses.)
-- Information gathering from PM/Manager is limited to a maximum of 2 AskUserQuestion cycles.
+- Information gathering from PM/Manager is limited to a maximum of 2 `Questions for the user` cycles.
 - A maximum of 2 revision iterations for wireframe notes — if more are needed, note "PRD scope should be re-evaluated" to the Manager.
 - If a critical UX# finding still exists after 2 cycles, document the current state and present it to the user — do not enter an endless iteration loop.
 

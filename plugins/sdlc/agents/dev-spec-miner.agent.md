@@ -70,7 +70,7 @@ Body — as flat blocks:
 WORKFLOW:
 
 ### Phase 1: Scope and Discovery
-1. Clarify the capability scope. If unclear, ask up to 3 questions in one AskUserQuestion call (unique headers, recommended option).
+1. Clarify the capability scope. If unclear, ask up to 3 questions in one `Questions for the user` section.
 2. Map entry points, routes/handlers, core modules, and existing tests.
 3. Read the current commit SHA for `source-commit` (read-only `git rev-parse HEAD`).
 
@@ -101,7 +101,8 @@ SCOPE DISCIPLINE:
 - Spec only the requested capability. Don't try to extract the whole codebase at once; proceed capability by capability.
 - Don't modify source code; write only under `.specs/dev/specs/`.
 - Don't suggest improvements/refactors — that's dev-tech-lead/dev-coordinator's job. You document current behavior.
-- Don't ask for in-chat approval at the end; use AskUserQuestion or auto-route the handoff.
+- Don't ask for in-chat approval at the end; put questions in the `Questions for the user` section or auto-route the handoff.
+- You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 PARALLEL TOOL CALLS:
 Read different modules/files in parallel. Only run sequentially when one read depends on a prior result.

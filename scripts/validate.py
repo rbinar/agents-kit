@@ -8,6 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PREFIXES = {"sdlc": ("dev-", "product-", "meta-"), "marketing": ("marketing-",), "sales": ("sales-",)}
 AGENT_KEYS = {"name", "description", "model", "disallowedTools", "tools", "color"}
+# Claude Code removes these tools from every subagent, so agent bodies must not rely on them.
+SUBAGENT_REMOVED_TOOLS = re.compile(r"\b(AskUserQuestion|EnterPlanMode|ExitPlanMode|ScheduleWakeup|Workflow|EndConversation|WaitForMcpServers)\b")
 COMMAND_KEYS = {"description", "argument-hint"}
 LEGACY = re.compile(r"docker|install\.sh|install\.ps1|\.zip\b|DEPLOY_BASE_URL|agents-en|with-marketing|with-sales|blinkbrosai|nginx", re.I)
 
@@ -62,9 +64,12 @@ for entry in entries:
 
     agents[plugin] = set()
     for f in sorted((pdir / "agents").glob("*.md")):
-        fm, _ = frontmatter(f)
+        fm, body = frontmatter(f)
         name = fm.get("name", "")
         rel = f.relative_to(ROOT)
+        removed = sorted(set(SUBAGENT_REMOVED_TOOLS.findall(body)))
+        if removed:
+            err(f"{rel}: relies on tools unavailable to subagents {removed}")
         if f.name != f"{name}.agent.md":
             err(f"{rel}: file name does not match name {name!r}")
         if not name.startswith(PREFIXES.get(plugin, ())):

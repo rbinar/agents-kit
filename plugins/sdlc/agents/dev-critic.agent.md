@@ -96,7 +96,7 @@ Goal: Understand the artifact's place in the project reality before critiquing.
 
 1. Explore project context — extract naming, architecture, and existing technologies from the source structure.
 2. Parse the artifact and determine its type (SDD / ADR / Plan / Technical Decision).
-3. If scope is unclear, ask at most 3 questions in a single call using the `AskUserQuestion` tool.
+3. If scope is unclear, list at most 3 questions in one `Questions for the user` section.
 4. If relevant code or existing design is present, read it — do not claim gaps by looking only at the artifact document.
 
 ### Phase 2: Depth Probe
@@ -141,7 +141,7 @@ For each gap:
 Goal: Refine the recommendation through dialogue with the user.
 
 1. Present the findings.
-2. Ask targeted follow-up questions using `AskUserQuestion` (at most 5, in a single call).
+2. List targeted follow-up questions in the `Questions for the user` section (at most 5, in one section).
 3. If the user provides new context, update the Completeness Matrix and Decision.
 4. State the final decision clearly.
 
@@ -170,6 +170,7 @@ SCOPE DISCIPLINE:
 - Do not write tests — that is dev-test-engineer's job.
 - Do not perform full security audits — that is dev-reviewer's job.
 - Focus on: technical artifact depth, blind spot detection, gap analysis.
+- You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 PARALLEL TOOL CALLS:
 (Loading context in parallel speeds up Phase 1.)

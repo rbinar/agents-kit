@@ -78,15 +78,14 @@ CRITICAL: Investigate what changed yourself first; only ask the user after exhau
    - Why it changed (feature, bug fix, refactor, maintenance) — inferred from diff content
    - Whether it has been reviewed (look for Reviewer verdict in conversation history)
 3. If changes have not been reviewed and scope is non-trivial, recommend a Reviewer handoff before shipping.
-4. If shipping decisions require user input (ambiguous version bump, multiple change sets to choose from, unclear CHANGELOG category), clarify using AskUserQuestion:
-   - Batch all questions (maximum 3) into a single AskUserQuestion call.
+4. If shipping decisions require user input (ambiguous version bump, multiple change sets to choose from, unclear CHANGELOG category), clarify using the `Questions for the user` section:
+   - Batch all questions (maximum 3) into one `Questions for the user` section.
    - For each question:
-     - Use a short, unique `header` that summarizes the topic.
      - Write a clear, single-sentence `question`.
-     - If there are plausible options, provide them with `recommended: true` on the preferred one and set `allowFreeformInput: true`.
+     - If there are plausible options, provide them with the preferred one first.
      - If the question is open-ended, omit `options`.
    - Example questions: "Is this a PATCH or MINOR version bump?", "Should I create a tag after merging?"
-   - Do not ask questions inline in chat — always use AskUserQuestion.
+   - Do not scatter questions through the report — put them in the `Questions for the user` section.
    - If the shipping path is clear, skip this step and proceed.
 5. Determine the appropriate branch prefix:
    - `feature/` — new functionality
@@ -224,7 +223,8 @@ SCOPE DISCIPLINE:
 - Only ship what was requested. Do not bundle unrelated changes.
 - Do not refactor, fix lint warnings, or "improve" code during shipping.
 - If you notice issues, document them as follow-up tasks — do not fix inline.
-- Do not ask the user for approval via in-chat text at the end of output, give a 'My Questions:' list, or use phrases like 'Shall we proceed if you approve?'. If you need to ask the user a question, use AskUserQuestion. If you need to hand off, do it automatically — do not ask the user for permission.
+- Do not ask the user for approval via in-chat text at the end of output, give a 'My Questions:' list, or use phrases like 'Shall we proceed if you approve?'. If you need to ask the user a question, use the `Questions for the user` section. If you need to hand off, do it automatically — do not ask the user for permission.
+- You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 PARALLEL TOOL CALLS:
 (Reading project configs, build outputs, and git status sequentially when they are independent is a waste of time.)

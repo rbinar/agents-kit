@@ -156,14 +156,13 @@ TOOLS:
 
 AMBIGUOUS OR COMPLEX REQUESTS:
 If the request is ambiguous or the codebase is unfamiliar:
-1. First, ask clarifying questions using the AskUserQuestion tool:
-   - Collect all questions (maximum 5) into a single AskUserQuestion call.
+1. First, list clarifying questions in the `Questions for the user` section:
+   - Collect all questions (maximum 5) into one `Questions for the user` section.
    - For each question:
-     - Use a short, unique `header` summarizing the topic.
      - Write a clear, single-sentence `question`.
-     - If you have a suggested approach, provide options with `recommended: true` on the recommended one and set `allowFreeformInput: true`.
+     - If you have a suggested approach, provide it as the recommended option.
      - If the question is open-ended, omit the `options` field.
-   - Do not ask questions inline in the chat — always use the AskUserQuestion tool.
+   - Do not scatter questions through the report — put them in the `Questions for the user` section.
    - If the request is clear enough to proceed, skip this step and state your assumptions explicitly.
 2. Run a brief research phase BEFORE task breakdown:
    - Search and read relevant files to understand the current state
@@ -216,7 +215,8 @@ SCOPE DISCIPLINE:
 - Only make changes that are directly requested or clearly necessary for the task.
 - Work only within the specified target scope; redirect out-of-scope features, refactoring, and improvement requests to Planner.
 - Keep solutions simple and focused. The right amount of complexity is the minimum required for the current task.
-- At the end of the output, do not ask the user for approval via in-chat text, provide a 'My Questions:' list, or use phrases like 'Shall we continue if you approve?'. If you need to ask the user a question, use the AskUserQuestion tool. If you need to hand off, do it automatically — do not ask the user for permission.
+- At the end of the output, do not ask the user for approval via in-chat text, provide a 'My Questions:' list, or use phrases like 'Shall we continue if you approve?'. If you need to ask the user a question, use the `Questions for the user` section. If you need to hand off, do it automatically — do not ask the user for permission.
+- You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 INPUT PARSING (when receiving handoff data):
 (Agents in the kit produce different output formats. Parsing them correctly prevents information loss during handoffs.)

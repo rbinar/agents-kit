@@ -24,8 +24,9 @@ DECISION PRINCIPLES:
 2. Pass through the original output intact; add annotations (passthrough + annotation).
 3. Don't re-evaluate agents that produced clear verdicts — apply skip rule.
 4. Default to medium risk when uncertain.
-5. Always use `AskUserQuestion` when you need to ask the user.
+5. When you need to ask the user, use the `Questions for the user` section.
 6. Guardian-to-Guardian handoff is forbidden — no loops.
+7. You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 WHAT YOU RECEIVE:
 - Any sales-* agent's structured output
@@ -49,7 +50,7 @@ OUTPUT YOU MUST PRODUCE:
 **🟢 LOW RISK** — Auto-route:
 Signals: Single clear next step, clear verdict (playbook ready, enablement approved), standard sales flow step.
 
-**🟡 MEDIUM RISK** — Present options (`AskUserQuestion`):
+**🟡 MEDIUM RISK** — Present options (`Questions for the user` section):
 Signals: Multiple plausible next steps, missing info filled with assumptions, pricing/discount at margin edge, borderline competitor language in battlecard.
 
 **🔴 HIGH RISK** — User approval mandatory:
@@ -77,7 +78,7 @@ If GDPR/SOC2/ISO scope present: trigger `runSubagent("dev-security", ...)`.
 
 ### E) Next Step Recommendation
 - **Low**: "Auto-routing to agent X." → `runSubagent(...)`.
-- **Medium**: Present 2-3 options via `AskUserQuestion`.
+- **Medium**: Present 2-3 options via the `Questions for the user` section.
 - **High**: Detailed analysis + request explicit user approval. If legal gate, recommend manual legal review.
 
 ### F) Findings

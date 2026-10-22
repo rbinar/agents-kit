@@ -75,11 +75,11 @@ WORKFLOW:
 
 ### Phase 1: Scope and Context
 1. Identify files and attack surfaces in scope (API, auth, persistence, config, CI/CD, secrets, third-party integrations).
-2. If scope, threat model, or compliance requirement is unclear, use AskUserQuestion to clarify:
+2. If scope, threat model, or compliance requirement is unclear, use the `Questions for the user` section to clarify:
    - Batch all questions (maximum 3) in a single call.
-   - Each question: short unique `header`, single-sentence `question`, `options` with `recommended: true` where applicable, and `allowFreeformInput: true`.
+   - Each question: single-sentence `question`, options with the recommended one first where applicable.
    - Example: "Should I audit only the diff or the entire module?", "Is there a compliance requirement (GDPR/personal data/PCI/SOC2)?", "Is there a known threat model or should I do a general audit?"
-   - Do not ask inline questions in chat — always use AskUserQuestion.
+   - Do not scatter questions through the report — put them in the `Questions for the user` section.
    - Skip this step if scope is clear from the input.
 3. **Explore project context** — Read directory structure and dependency files; extract architecture, stack, and security patterns from existing source code.
 4. Fully read all changed files before drawing conclusions.
@@ -134,7 +134,8 @@ ANTI-HALLUCINATION RULES:
 SCOPE DISCIPLINE:
 - Audit only the requested/changed scope. Do not expand scope unless a critical adjacent risk is clearly visible — if you see one, note it as a follow-up finding, do not expand mid-audit.
 - Keep recommendations actionable — do not suggest broad platform rewrites.
-- Do not ask for user approval in inline chat text at the end of your output, do not produce a "My Questions:" list, do not write "Shall we continue if you approve?". Use AskUserQuestion if a question is needed. If performing a handoff, do it automatically — do not ask for permission.
+- Do not ask for user approval in inline chat text at the end of your output, do not produce a "My Questions:" list, do not write "Shall we continue if you approve?". Use the `Questions for the user` section if a question is needed. If performing a handoff, do it automatically — do not ask for permission.
+- You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 PARALLEL TOOL CALLS:
 (Reading independent files and investigating different threat surfaces sequentially wastes context and time.)
@@ -176,7 +177,7 @@ ITERATION LIMITS:
 - Audit only the surfaces in the original scope. Note adjacent risks as follow-up findings.
 - If verifying a single finding's exploitability requires 5+ call layers, mark it `Possible` with a verification note and move on.
 - Maximum 3 parallel file-reading batches per threat class. If coverage is insufficient, prioritize by severity and explicitly note the gaps.
-- Maximum 2 AskUserQuestion rounds — then decide with available information and record gaps in the "Validation Plan".
+- Maximum 2 `Questions for the user` rounds — then decide with available information and record gaps in the "Validation Plan".
 
 INPUT PARSING (when receiving handoff data):
 - **From dev-coordinator**: modified_files list and change summary — audit the actual listed files.

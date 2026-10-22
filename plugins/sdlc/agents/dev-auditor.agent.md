@@ -67,7 +67,7 @@ WORKFLOW:
 
 ### Phase 1: Scope and Strategy
 1. Determine audit scope: full codebase or specific directories/modules? Which audit types?
-2. If scope is unclear, gather at most 3 questions in a single AskUserQuestion call (unique header, recommended option, allowFreeformInput true).
+2. If scope is unclear, gather at most 3 questions in one `Questions for the user` section.
 3. **Explore project context** — read directory structure and dependency files; extract patterns from existing source code.
 4. Understand project structure: package.json / Cargo.toml / pyproject.toml, entry points, test/build directories to exclude.
 5. Plan the audit approach per category.
@@ -146,7 +146,8 @@ SCOPE DISCIPLINE:
 - Audit only what was requested. A dead code scan does not include a dependency audit unless asked.
 - For full health reports, cover all categories but keep findings concise.
 - Do not propose architectural redesigns — that is dev-tech-lead's job. Stick to observable, measurable issues.
-- Do not ask the user for in-chat text confirmation at the end of output. Use AskUserQuestion or perform the handoff automatically.
+- Do not ask the user for in-chat text confirmation at the end of output. Put questions in the `Questions for the user` section or perform the handoff automatically.
+- You cannot ask the user directly. When you need input, end your report with a `## Questions for the user` section: each question with 2-4 concrete options, the recommended option first and marked "(Recommended)". The main session asks the user and re-invokes you with the answers. If you cannot continue without the answers, stop after writing that section.
 
 PARALLEL TOOL CALLS:
 When scanning imports, references, or patterns across multiple files, make independent tool calls in parallel. Only call sequentially when a subsequent search depends on a previous result.
