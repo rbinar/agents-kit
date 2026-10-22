@@ -6,6 +6,23 @@ Agent names below are shown in their short form. When installed from the marketp
 
 ---
 
+## Two ways to run it
+
+**Fast path — six commands.** For a single feature you can skip the product backlog steps and drive the lifecycle with the `sdlc` commands. Each command runs the steps of this document marked with it:
+
+| Command | Runs | Section below |
+|---|---|---|
+| `/sdlc:spec <idea>` | asks clarifying questions, then `product-manager` | 1.3 |
+| `/sdlc:plan <PRD>` | `dev-tech-lead` → `dev-planner` | 3.1, 3.3 |
+| `/sdlc:build <plan>` | `dev-coordinator` with parallel workers | 3.4 |
+| `/sdlc:test` | `dev-test-engineer`; failures go to `dev-debugger`, fixes to `dev-coordinator` | 3.5 |
+| `/sdlc:review` | `dev-reviewer`, plus `dev-security` for high-risk changes | 3.6, 3.7 |
+| `/sdlc:ship` | `dev-shipper` | 3.8 |
+
+A real run of the fast path — every prompt, hand-off and report, including a bug the test agent found and the reviewer blocked — is in [rbinar/agents-kit-demo](https://github.com/rbinar/agents-kit-demo/blob/main/docs/transcript/README.md).
+
+**Full pipeline — this document.** For a product with several features, start at the facilitator and go through goals, epics, stories and sprints before engineering picks up the work, as described below.
+
 ## Overall Flow
 
 ```
@@ -98,7 +115,7 @@ First usable release: 3 sprints (6 weeks)
 
 ---
 
-### 1.3 `product-manager`
+### 1.3 `product-manager` — `/sdlc:spec`
 
 **Triggered by:** the Product Goal file.
 
@@ -454,7 +471,7 @@ When the sprint plan is complete, the engineering pipeline starts. The sprint ba
 
 ## Part 3 - Dev Pipeline
 
-### 3.1 `dev-tech-lead`
+### 3.1 `dev-tech-lead` — `/sdlc:plan`
 
 **Triggered by:** the sprint plan + Feature Spec + PRD.
 
@@ -554,7 +571,7 @@ Redis: not suitable for CRUD.
 
 ---
 
-### 3.3 `dev-planner`
+### 3.3 `dev-planner` — `/sdlc:plan`
 
 **Triggered by:** the SDD.
 
@@ -586,7 +603,7 @@ File conflicts: None. Each file is assigned to a single sub-agent in a single wa
 
 ---
 
-### 3.4 `dev-coordinator` (parallel sub-agents)
+### 3.4 `dev-coordinator` (parallel sub-agents) — `/sdlc:build`
 
 **Triggered by:** the implementation plan.
 
@@ -644,7 +661,7 @@ commit-sha: a3f7c2d
 
 ---
 
-### 3.5 `dev-test-engineer`
+### 3.5 `dev-test-engineer` — `/sdlc:test`
 
 **Triggered by:** Coordinator output (API routes ready).
 
@@ -678,7 +695,7 @@ def test_complete_task(client, sample_task):
 
 ---
 
-### 3.6 `dev-reviewer`
+### 3.6 `dev-reviewer` — `/sdlc:review`
 
 **Triggered by:** a PR being opened.
 
@@ -700,7 +717,7 @@ APPROVED (after fixes)
 
 ---
 
-### 3.7 `dev-security` *(for high-risk PRs)*
+### 3.7 `dev-security` *(for high-risk PRs)* — `/sdlc:review`
 
 **For this sprint:** Task CRUD has no auth and input validation is done with Pydantic. `dev-reviewer` is enough.
 
@@ -708,7 +725,7 @@ APPROVED (after fixes)
 
 ---
 
-### 3.8 `dev-shipper`
+### 3.8 `dev-shipper` — `/sdlc:ship`
 
 **Triggered by:** review approval.
 

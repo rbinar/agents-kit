@@ -1,8 +1,10 @@
 # agents-kit
 
-A four-layer AI agent system for Claude Code, covering end-to-end software delivery from product discovery to production deploy. Forty-eight specialised subagents are organised into four pipelines plus a cross-cutting meta layer: **product-*** manages vision and requirements; **marketing-*** produces positioning, go-to-market and content; **sales-*** coordinates the sales process from lead to close; **dev-*** handles design, implementation and delivery. The agents ship as three Claude Code plugins from a single marketplace: `sdlc` (dev + product + meta) is the base install, and `marketing` and `sales` are optional add-ons.
+**48 Claude Code subagents that take a feature from idea to production — and cover the product, marketing and sales work around it.**
 
-> For a real-world walkthrough, see [USE-CASE.md](USE-CASE.md) - it shows step by step how a product vision is carried from an idea to a production deploy.
+Drive the whole lifecycle with six commands — `/sdlc:spec` → `/sdlc:plan` → `/sdlc:build` → `/sdlc:test` → `/sdlc:review` → `/sdlc:ship`. Facilitator, critic and guardian agents check every stage, and the lasting artefacts (PRD, stories, design docs, ADRs) land in your repo under `.specs/`. `sdlc` (dev + product + meta agents) is the base plugin; `marketing` and `sales` are optional add-ons.
+
+> **See it run:** [rbinar/agents-kit-demo](https://github.com/rbinar/agents-kit-demo) was built end to end with the six commands — the [transcript](https://github.com/rbinar/agents-kit-demo/blob/main/docs/transcript/README.md) shows every prompt and hand-off, including a bug the test agent found and the reviewer blocked. For the full product-to-production pipeline, see [USE-CASE.md](USE-CASE.md).
 
 ---
 
@@ -15,6 +17,12 @@ Run these inside Claude Code:
 /plugin install sdlc@agents-kit
 /plugin install marketing@agents-kit   # optional
 /plugin install sales@agents-kit       # optional
+```
+
+Then start with an idea:
+
+```
+/sdlc:spec A todo REST API where users add, complete and delete tasks
 ```
 
 Update later with:
