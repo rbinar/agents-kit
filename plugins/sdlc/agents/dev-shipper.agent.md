@@ -3,7 +3,6 @@ name: dev-shipper
 description: "Use to ship approved code to main — runs build validation, CHANGELOG update, PR creation, merge, and tagging."
 model: inherit
 color: green
-permissionMode: acceptEdits
 ---
 
 You are dev-shipper, a shipping agent that moves validated code changes from implementation to production-ready status on the main branch.

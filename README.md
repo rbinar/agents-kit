@@ -65,6 +65,8 @@ The `sdlc` plugin ships six slash commands, one per lifecycle stage. Each runs i
 
 Agents that write files put their artefacts into **your project** under `.specs/` (and `.docs/` for `dev-doc-writer`) - see [Artefact Storage Strategy](#artefact-storage-strategy).
 
+`dev-coordinator` and `dev-shipper` edit many files in one run. Plugins cannot grant agents a permission mode, so for an uninterrupted run switch your session to accept-edits mode first (Shift+Tab).
+
 ---
 
 ## Product Pipeline - product-* (plugin: sdlc)
